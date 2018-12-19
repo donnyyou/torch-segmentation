@@ -9,7 +9,7 @@
 
 This repository provides source code for some deep learning based cv problems. We'll do our best to keep this repository up to date.  If you do find a problem about this repository, please raise it as an issue. We will fix it immediately.
 
-We will release code & results later!!!
+
 ## Implemented Papers
 
 - [Semantic Segmentation](https://github.com/youansheng/PyTorchCV-SemSeg/tree/master/methods)
@@ -22,9 +22,9 @@ We will release code & results later!!!
 
 ## Performances with PyTorchCV-SemSeg
 
-#### CityScapes (Single Scale Whole Image Test)
+- CityScapes (Single Scale Whole Image Test)
 
-| Model | Backbone | TrainData  | TestData | mIOU | BatchSize | Iters | Scripts |
+| Model | Backbone | Train | Test | mIOU | BatchSize | Iters | Scripts |
 |--------|:---------:|:------:|:------:|:------:|:------:|:------:|:------|
 | [PSPNet](https://drive.google.com/open?id=1bjQ8c-h1IBQPgp7DDwXl-U3tBo1lW6wB) | [3x3-Res101](https://drive.google.com/open?id=1bUzCKazlh8ElGVYWlABBAb0b0uIqFgtR) | train-fine | val | 78.13 | 8 | 40000 | [PSPNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/cityscape/run_fs_pspnet_cityscape_seg.sh) |
 | [DeepLabV3](https://drive.google.com/open?id=1hyoXXAZW2-yu4XYHKF6c3FaD8BM6g6qZ) | [3x3-Res101](https://drive.google.com/open?id=1bUzCKazlh8ElGVYWlABBAb0b0uIqFgtR) | train-fine | val | 78.64 | 8 | 40000 | [DeepLabV3](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/cityscape/run_fs_deeplabv3_cityscape_seg.sh) |
@@ -33,12 +33,12 @@ We will release code & results later!!!
 | [ASP-OCNet](https://drive.google.com/open?id=1_jPHJmqnej6tCK3CB2YSDK3xTU6AhYMW) | [3x3-Res101](https://drive.google.com/open?id=1bUzCKazlh8ElGVYWlABBAb0b0uIqFgtR) | train-fine | val | 79.23 | 8 | 40000 | [ASP-OCNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/cityscape/run_fs_aspocnet_cityscape_seg.sh) |
 
 
-#### ADE20K (Single Scale Whole Image Test)
-| Model | Backbone | TrainData  | TestData | mIOU | PixelACC | BatchSize | Iters | Scripts |
+- ADE20K (Single Scale Whole Image Test)
+
+| Model | Backbone | Train | Test | mIOU | PixelACC | BatchSize | Iters | Scripts |
 |--------|:---------:|:------:|:------:|:------:|:------:|:------:|:------:|:------|
 | [PSPNet](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res50](https://drive.google.com/open?id=1zPQLFd9c1yHfkQn5CWBCcEKmjEEqxsWx) | train | val | 40.54 | 78.62 | 16 | 75000 | [PSPNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/ade20k/run_fs_resnet50_pspnet_ade20k_seg.sh) |
 | [DeepLabv3](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res50](https://drive.google.com/open?id=1zPQLFd9c1yHfkQn5CWBCcEKmjEEqxsWx) | train | val | 41.52 | 78.95 | 16 | 75000 | [DeepLabV3](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/ade20k/run_fs_resnet50_deeplabv3_ade20k_seg.sh) |
 | [Base-OCNet](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res50](https://drive.google.com/open?id=1zPQLFd9c1yHfkQn5CWBCcEKmjEEqxsWx) | train | val | 40.30 | 78.71 | 16 | 75000 | [Base-OCNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/ade20k/run_fs_resnet50_baseocnet_ade20k_seg.sh) |
 | [Pyramid-OCNet](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res50](https://drive.google.com/open?id=1zPQLFd9c1yHfkQn5CWBCcEKmjEEqxsWx) | train | val | - | - | 16 | 75000 | [Pyramid-OCNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/ade20k/run_fs_resnet50_pyramidocnet_ade20k_seg.sh) |
 | [ASP-OCNet](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res50](https://drive.google.com/open?id=1zPQLFd9c1yHfkQn5CWBCcEKmjEEqxsWx) | train | val | 41.56 | 78.94 | 16 | 75000 | [ASP-OCNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/ade20k/run_fs_resnet50_aspocnet_ade20k_seg.sh) |
-
