@@ -9,7 +9,7 @@
 
 This repository provides source code for some deep learning based cv problems. We'll do our best to keep this repository up to date.  If you do find a problem about this repository, please raise it as an issue. We will fix it immediately.
 
-
+We will release code & results later!!!
 ## Implemented Papers
 
 - [Semantic Segmentation](https://github.com/youansheng/PyTorchCV-SemSeg/tree/master/methods)
@@ -41,7 +41,4 @@ This repository provides source code for some deep learning based cv problems. W
 | [Base-OCNet](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res50](https://drive.google.com/open?id=1zPQLFd9c1yHfkQn5CWBCcEKmjEEqxsWx) | train | val | 40.30 | 78.71 | 16 | 75000 | [Base-OCNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/ade20k/run_fs_resnet50_baseocnet_ade20k_seg.sh) |
 | [Pyramid-OCNet](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res50](https://drive.google.com/open?id=1zPQLFd9c1yHfkQn5CWBCcEKmjEEqxsWx) | train | val | - | - | 16 | 75000 | [Pyramid-OCNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/ade20k/run_fs_resnet50_pyramidocnet_ade20k_seg.sh) |
 | [ASP-OCNet](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res50](https://drive.google.com/open?id=1zPQLFd9c1yHfkQn5CWBCcEKmjEEqxsWx) | train | val | 41.56 | 78.94 | 16 | 75000 | [ASP-OCNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/scripts/ade20k/run_fs_resnet50_aspocnet_ade20k_seg.sh) |
-| [PSPNet](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res101](https://drive.google.com/open?id=1bUzCKazlh8ElGVYWlABBAb0b0uIqFgtR) | train | val | - | - | [PSPNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/hypes/ade20k/fs_pspnet_ade20k_seg.json) |
-| [Base-OCNet](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res101](https://drive.google.com/open?id=1bUzCKazlh8ElGVYWlABBAb0b0uIqFgtR) | train | val | - | - | [Base-OCNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/hypes/ade20k/fs_baseocnet_ade20k_seg.json) |
-| [ASP-OCNet](https://drive.google.com/open?id=1Q6oYBpq9Y53z_CJz7Km9BaiSVJjcHP4h) | [3x3-Res101](https://drive.google.com/open?id=1bUzCKazlh8ElGVYWlABBAb0b0uIqFgtR) | train | val | - | - | [ASP-OCNet](https://github.com/youansheng/PyTorchCV-SemSeg/blob/master/hypes/ade20k/fs_aspocnet_ade20k_seg.json) |
 
