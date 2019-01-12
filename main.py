@@ -138,7 +138,7 @@ if __name__ == "__main__":
 
     # ***********  Params for env.  **********
     parser.add_argument('--seed', default=None, type=int, help='manual seed')
-    parser.add_argument('--cudnn', type=str2bool, nargs='?', default=False, help='Use CUDNN.')
+    parser.add_argument('--cudnn', type=str2bool, nargs='?', default=True, help='Use CUDNN.')
 
     args_parser = parser.parse_args()
     if args_parser.seed is not None:
