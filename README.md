@@ -17,6 +17,8 @@ This repository provides source code for some deep learning based semantic segme
     - DeepLabV3: Rethinking Atrous Convolution for Semantic Image Segmentation
     - DenseASPP: DenseASPP for Semantic Segmentation in Street Scenes
 
+## Performances with PyTorchCV-SemSeg
+
 - CityScapes (Single Scale Whole Image Test): Base LR 0.01, Crop Size 769
 
 | Checkpoints | Backbone | Train | Test | mIOU | BS | Iters | Scripts |
