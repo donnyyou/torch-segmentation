@@ -4,7 +4,7 @@
 nvidia-smi
 PYTHON="/root/miniconda3/bin/python"
 
-export PYTHONPATH="/home/donny/PyTorchCV-SemSeg":$PYTHONPATH
+export PYTHONPATH="/home/donny/torchcv-seg":$PYTHONPATH
 
 cd ../../
 
