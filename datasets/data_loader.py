@@ -8,19 +8,18 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import os
 from torch.utils import data
 
+import datasets.tools.transforms as trans
 import datasets.tools.cv2_aug_transforms as cv2_aug_trans
 import datasets.tools.pil_aug_transforms as pil_aug_trans
-import datasets.tools.transforms as trans
-from datasets.fs_data_loader import FSDataLoader
-from datasets.rs_data_loader import RSDataLoader
+from datasets.loader.default_loader import DefaultLoader
+from datasets.loader.ade20k_loader import ADE20KLoader
 from datasets.tools.collate import collate
 from utils.tools.logger import Logger as Log
 
 
-class SegDataLoader(object):
+class DataLoader(object):
 
     def __init__(self, configer):
         self.configer = configer
@@ -52,9 +51,9 @@ class SegDataLoader(object):
             trans.ReLabel(255, -1), ])
 
     def get_trainloader(self):
-        if self.configer.exists('train', 'loader') and self.configer.get('train', 'loader') == 'rs':
+        if self.configer.exists('train', 'loader') and self.configer.get('train', 'loader') == 'ade20k':
             trainloader = data.DataLoader(
-                RSDataLoader(root_dir=self.configer.get('data', 'data_dir'), dataset='train',
+                ADE20KLoader(root_dir=self.configer.get('data', 'data_dir'), dataset='train',
                              aug_transform=self.aug_train_transform,
                              img_transform=self.img_transform,
                              label_transform=self.label_transform,
@@ -71,11 +70,11 @@ class SegDataLoader(object):
 
         else:
             trainloader = data.DataLoader(
-                FSDataLoader(root_dir=self.configer.get('data', 'data_dir'), dataset='train',
-                             aug_transform=self.aug_train_transform,
-                             img_transform=self.img_transform,
-                             label_transform=self.label_transform,
-                             configer=self.configer),
+                DefaultLoader(root_dir=self.configer.get('data', 'data_dir'), dataset='train',
+                              aug_transform=self.aug_train_transform,
+                              img_transform=self.img_transform,
+                              label_transform=self.label_transform,
+                              configer=self.configer),
                 batch_size=self.configer.get('train', 'batch_size'), pin_memory=True,
                 num_workers=self.configer.get('data', 'workers'),
                 shuffle=True, drop_last=self.configer.get('data', 'drop_last'),
@@ -90,11 +89,11 @@ class SegDataLoader(object):
         dataset = 'val' if dataset is None else dataset
         if self.configer.get('method') == 'fcn_segmentor':
             valloader = data.DataLoader(
-                FSDataLoader(root_dir=self.configer.get('data', 'data_dir'), dataset=dataset,
-                             aug_transform=self.aug_val_transform,
-                             img_transform=self.img_transform,
-                             label_transform=self.label_transform,
-                             configer=self.configer),
+                DefaultLoader(root_dir=self.configer.get('data', 'data_dir'), dataset=dataset,
+                              aug_transform=self.aug_val_transform,
+                              img_transform=self.img_transform,
+                              label_transform=self.label_transform,
+                              configer=self.configer),
                 batch_size=self.configer.get('val', 'batch_size'), pin_memory=True,
                 num_workers=self.configer.get('data', 'workers'), shuffle=False,
                 collate_fn=lambda *args: collate(

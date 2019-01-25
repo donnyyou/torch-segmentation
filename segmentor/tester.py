@@ -15,7 +15,7 @@ import numpy as np
 import torch
 from PIL import Image
 
-from datasets.seg_data_loader import SegDataLoader
+from datasets.data_loader import DataLoader
 from segmentor.tools.blob_helper import BlobHelper
 from segmentor.tools.module_runner import ModuleRunner
 from models.model_manager import ModelManager
@@ -33,7 +33,7 @@ class Tester(object):
         self.seg_visualizer = SegVisualizer(configer)
         self.seg_parser = SegParser(configer)
         self.seg_model_manager = ModelManager(configer)
-        self.seg_data_loader = SegDataLoader(configer)
+        self.seg_data_loader = DataLoader(configer)
         self.module_runner = ModuleRunner(configer)
         self.device = torch.device('cpu' if self.configer.get('gpu') is None else 'cuda')
         self.seg_net = None

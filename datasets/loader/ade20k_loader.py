@@ -9,16 +9,17 @@ from __future__ import print_function
 
 import os
 import random
-import torch
+
 import numpy as np
+import torch
 from torch.utils import data
 
-from extensions.parallel.data_container import DataContainer
 from utils.helpers.image_helper import ImageHelper
+from extensions.parallel.data_container import DataContainer
 from utils.tools.logger import Logger as Log
 
 
-class RSDataLoader(data.Dataset):
+class ADE20KLoader(data.Dataset):
     def __init__(self, root_dir, aug_transform=None, dataset=None,
                  img_transform=None, label_transform=None, configer=None):
         self.configer = configer
@@ -41,7 +42,7 @@ class RSDataLoader(data.Dataset):
         label_out = [labelmap]
         for i in range(self.configer.get('train', 'batch_per_gpu')-1):
             while True:
-                cur_index = (cur_index + 1) % len(self.img_list)
+                cur_index = (cur_index + random.randint(1, len(self.img_list) - 1)) % len(self.img_list)
                 now_img_size = self.size_list[cur_index]
                 now_mark = 0 if now_img_size[0] > now_img_size[1] else 1
                 mark = 0 if img_size[0] > img_size[1] else 1

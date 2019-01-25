@@ -8,15 +8,16 @@ from __future__ import division
 from __future__ import print_function
 
 import os
+
 import numpy as np
 from torch.utils import data
 
-from extensions.parallel.data_container import DataContainer
 from utils.helpers.image_helper import ImageHelper
+from extensions.parallel.data_container import DataContainer
 from utils.tools.logger import Logger as Log
 
 
-class FSDataLoader(data.Dataset):
+class DefaultLoader(data.Dataset):
     def __init__(self, root_dir, aug_transform=None, dataset=None,
                  img_transform=None, label_transform=None, configer=None):
         self.configer = configer

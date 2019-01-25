@@ -14,7 +14,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from datasets.seg_data_loader import SegDataLoader
+from datasets.data_loader import DataLoader
 from loss.loss_manager import LossManager
 from segmentor.tools.module_runner import ModuleRunner
 from segmentor.tools.optim_scheduler import OptimScheduler
@@ -23,9 +23,6 @@ from utils.tools.average_meter import AverageMeter
 from utils.tools.logger import Logger as Log
 from val.scripts.seg_running_score import SegRunningScore
 from vis.seg_visualizer import SegVisualizer
-
-
-#
 
 
 class Trainer(object):
@@ -43,7 +40,7 @@ class Trainer(object):
         self.seg_loss_manager = LossManager(configer)
         self.module_runner = ModuleRunner(configer)
         self.seg_model_manager = ModelManager(configer)
-        self.seg_data_loader = SegDataLoader(configer)
+        self.seg_data_loader = DataLoader(configer)
         self.optim_scheduler = OptimScheduler(configer)
 
         self.seg_net = None
