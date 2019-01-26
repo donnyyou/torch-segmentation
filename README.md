@@ -61,3 +61,31 @@ DataSet
 | [DeepLabv3]() | [3x3-Res50]() | train | val | 42.16 | 80.36 | 16 | 15W | [DeepLabV3](https://github.com/youansheng/torchcv-seg/blob/master/scripts/ade20k/run_fs_res50_deeplabv3_ade20k_seg.sh) |
 | [PSPNet]() | [3x3-Res101]() | train | val | 43.60 | 81.30 | 16 | 15W | [PSPNet](https://github.com/youansheng/torchcv-seg/blob/master/scripts/ade20k/run_fs_res101_pspnet_ade20k_seg.sh) |
 | [DeepLabv3]() | [3x3-Res101]() | train | val | 44.13 | 81.42 | 16 | 15W | [DeepLabV3](https://github.com/youansheng/torchcv-seg/blob/master/scripts/ade20k/run_fs_res101_deeplabv3_ade20k_seg.sh) |
+
+
+## Commands with TorchCV-Seg
+
+Take PSPNet as an example. ("tag" could be any string, include an empty one.)
+- Training
+```bash
+cd scripts/cityscape/
+bash run_fs_pspnet_cityscape_seg.sh train tag
+```
+
+- Resume Training
+```bash
+cd scripts/cityscape/
+bash run_fs_pspnet_cityscape_seg.sh train tag
+```
+
+- Validate
+```bash
+cd scripts/cityscape/
+bash run_fs_pspnet_cityscape_seg.sh val tag
+```
+
+- Testing:
+```bash
+cd scripts/cityscape/
+bash run_fs_pspnet_cityscape_seg.sh test tag
+```
