@@ -43,7 +43,7 @@ DataSet
             ...
 ```
 
-## Performances with torchcv-seg
+## Performances with TorchCV-Seg
 
 - CityScapes (Single Scale Whole Image Test): Base LR 0.01, Crop Size 769
 
