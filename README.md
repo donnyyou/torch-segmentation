@@ -20,7 +20,7 @@ This repository provides source code for some deep learning based semantic segme
 ## DataSets
 - You could preprocess the open datasets with the scripts in folder [datasets/preprocess](https://github.com/youansheng/torchcv-seg/tree/master/datasets/preprocess)
 
-- An example dataset for training
+- An example dataset tree for training
 ```
 DataSet
     train
