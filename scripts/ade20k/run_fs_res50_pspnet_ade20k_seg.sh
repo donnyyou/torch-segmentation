@@ -16,7 +16,13 @@ CHECKPOINTS_NAME="fs_res50_pspnet_ade20k_seg"$2
 PRETRAINED_MODEL="./pretrained_model/resnet50-imagenet.pth"
 MAX_ITERS=150000
 
-LOG_FILE="./log/ade20k/${CHECKPOINTS_NAME}.log"
+LOG_DIR="./log/ade20k/"
+LOG_FILE="${LOG_DIR}${CHECKPOINTS_NAME}.log"
+
+if [ ! -d ${LOG_DIR} ]; then
+    echo ${LOG_DIR}" not exists!!!"
+    make -p ${LOG_DIR}
+fi
 
 
 if [ "$1"x == "train"x ]; then
