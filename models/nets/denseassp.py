@@ -26,12 +26,6 @@ class DenseASPP(nn.Module):
 
         num_features = self.backbone.get_num_features()
 
-        self.trans = _Transition(num_input_features=self.num_features,
-                                 num_output_features=self.num_features // 2,
-                                 bn_type=self.configer.get('network', 'bn_type'))
-
-        self.num_features = self.num_features // 2
-
         self.ASPP_3 = _DenseAsppBlock(input_num=num_features, num1=256, num2=64,
                                       dilation_rate=3, drop_out=dropout0,
                                       bn_type=self.configer.get('network', 'bn_type'))
@@ -64,7 +58,7 @@ class DenseASPP(nn.Module):
             if isinstance(m, nn.Conv2d):
                 nn.init.xavier_uniform_(m.weight.data)
 
-            elif isinstance(m, ModuleHelper.BatchNorm2d(bn_type=self.configer.get('network', 'bn_type'))):
+            elif isinstance(m, type(ModuleHelper.BatchNorm2d(bn_type=self.configer.get('network', 'bn_type')))):
                 m.weight.data.fill_(1)
                 m.bias.data.zero_()
 
@@ -105,21 +99,16 @@ class _DenseAsppBlock(nn.Sequential):
         self.add_module('relu2', nn.ReLU(inplace=False)),
         self.add_module('conv2', nn.Conv2d(in_channels=num1, out_channels=num2, kernel_size=3,
                                             dilation=dilation_rate, padding=dilation_rate)),
-        self.add_module('norm2', ModuleHelper.BatchNorm2d(bn_type=bn_type)(num_features=input_num)),
 
         self.drop_rate = drop_out
 
     def forward(self, _input):
         feature = super(_DenseAsppBlock, self).forward(_input)
+
+        if self.drop_rate > 0:
+            feature = F.dropout2d(feature, p=self.drop_rate, training=self.training)
+
         return feature
-
-
-class _Transition(nn.Sequential):
-    def __init__(self, num_input_features, num_output_features, bn_type):
-        super(_Transition, self).__init__()
-        self.add_module('relu', nn.ReLU(inplace=False))
-        self.add_module('conv', nn.Conv2d(num_input_features, num_output_features, kernel_size=1, stride=1, bias=False))
-        self.add_module('norm', ModuleHelper.BatchNorm2d(bn_type=bn_type)(num_features=num_output_features)),
 
 
 if __name__ == "__main__":
